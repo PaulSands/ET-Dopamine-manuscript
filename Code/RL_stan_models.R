@@ -22,7 +22,7 @@ set.seed(1331)
 
 ## Load data and create input data list for Stan models
 ################################################################
-setwd("~/Downloads/Dopamine-ET-Manuscript/Data/")
+setwd("~/Downloads/ET-Dopamine-manuscript/Data/")
 data <- readMat('ET_stan_data.mat')
 
 idx    <- c(1:11)
@@ -41,8 +41,8 @@ dat    <- list(N       = 11,
 
 ## Form stan model objects for desired models (to be sampled from)
 ################################################################
-model_arg_TDRL <- stan_model("~/Downloads/Dopamine-ET-Manuscript/Code/TDRL.stan")
-model_arg_VPRL <- stan_model("~/Downloads/Dopamine-ET-Manuscript/Code/VPRL.stan")
+model_arg_TDRL <- stan_model("~/Downloads/ET-Dopamine-manuscript/Code/TDRL.stan")
+model_arg_VPRL <- stan_model("~/Downloads/ET-Dopamine-manuscript/Code/VPRL.stan")
 #####
 
 
