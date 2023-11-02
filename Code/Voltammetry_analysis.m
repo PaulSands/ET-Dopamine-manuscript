@@ -10,20 +10,20 @@ switch os
     case 'Mac'
         if exist('ET_data','var') == 1
         else
-            load('~/Downloads/Dopamine-ET-manuscript/Data/ET_task_data.mat')
+            load('~/Downloads/ET-Dopamine-manuscript/Data/ET_task_data.mat')
         end
 
         for i = 1:numel(ET_subjID)
 
             % Load timing data for events of interest within task
-            load(['~/Downloads/Dopamine-ET-manuscript/Data/ET' num2str(ET_subjID(i)) '_timeCorrectedBehaviorVariables.mat'], ...
+            load(['~/Downloads/ET-Dopamine-manuscript/Data/ET' num2str(ET_subjID(i)) '_timeCorrectedBehaviorVariables.mat'], ...
                 'adjChoiceOnset','adjDecisionOnset','adjOutcomeOnset')
             ET_volt_data{i,1}.Choice_onset  = round(adjChoiceOnset,1);
             ET_volt_data{i,1}.Action_onset  = round(adjDecisionOnset,1);
             ET_volt_data{i,1}.Outcome_onset = round(adjOutcomeOnset,1);
             
             % Load voltammetry data
-            load(['~/Downloads/Dopamine-ET-manuscript/Data/ET' num2str(ET_subjID(i)) '_TimeSeriesVar.mat'],'dopamine','ch1DataPointTimes')
+            load(['~/Downloads/ET-Dopamine-manuscript/Data/ET' num2str(ET_subjID(i)) '_TimeSeriesVar.mat'],'dopamine','ch1DataPointTimes')
             ET_volt_data{i,1}.analytes{1,1} = dopamine;
             ET_volt_data{i,1}.Timing        = round(ch1DataPointTimes,1);
         end
@@ -31,20 +31,20 @@ switch os
     case 'Windows'
         if exist('ET_data','var') == 1
         else
-            load('C:\Users\psands\Downloads\Dopamine-ET-manuscript\Data\ET_task_data.mat')
+            load('C:\Users\psands\Downloads\ET-Dopamine-manuscript\Data\ET_task_data.mat')
         end
 
         for i = 1:numel(ET_subjID)
 
             % Load timing data for events of interest within task
-            load(['C:\Users\psands\Downloads\Dopamine-ET-manuscript\Data\ET' num2str(ET_subjID(i)) '_timeCorrectedBehaviorVariables.mat'], ...
+            load(['C:\Users\psands\Downloads\ET-Dopamine-manuscript\Data\ET' num2str(ET_subjID(i)) '_timeCorrectedBehaviorVariables.mat'], ...
                 'adjChoiceOnset','adjDecisionOnset','adjOutcomeOnset')
             ET_volt_data{i,1}.Choice_onset  = round(adjChoiceOnset,1);
             ET_volt_data{i,1}.Action_onset  = round(adjDecisionOnset,1);
             ET_volt_data{i,1}.Outcome_onset = round(adjOutcomeOnset,1);
             
             % Load voltammetry data
-            load(['C:\Users\psands\Downloads\Dopamine-ET-manuscript\Data\ET' num2str(ET_subjID(i)) '_TimeSeriesVar.mat'],'dopamine','ch1DataPointTimes')
+            load(['C:\Users\psands\Downloads\ET-Dopamine-manuscript\Data\ET' num2str(ET_subjID(i)) '_TimeSeriesVar.mat'],'dopamine','ch1DataPointTimes')
             ET_volt_data{i,1}.analytes{1,1} = dopamine;
             ET_volt_data{i,1}.Timing        = round(ch1DataPointTimes,1);
         end
